@@ -1,0 +1,10 @@
+<h2 fxLayoutAlign="center center">
+    PESSOAS CADASTRADAS
+</h2>
+
+<div fxLayout="column" 
+    fxLayoutAlign="space-around center" 
+    *ngFor="let usuario of usuarios" 
+    style="margin-bottom: 20px; margin-top: 20px;">
+    <app-usuario-card [usuario]="usuario"></app-usuario-card>   
+</div>

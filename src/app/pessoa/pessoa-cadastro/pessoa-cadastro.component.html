@@ -1,0 +1,70 @@
+<div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 50px;">
+    <mat-card>
+        <mat-card-header >
+            <h2 fxLayout="row" fxLayoutAlign="center center">
+                Cadastro da Pessoa
+            </h2>
+        </mat-card-header> 
+        <form [formGroup]="pessoaForm">
+
+            <div fxLayout="column">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nome</mat-label>
+                    <input matInput formControlName="nome" required>
+                    <mat-error validation controlName="nome"
+                        [msg]="{required: 'Campo Nome é obrigatório'}">
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="column">
+                <mat-form-field appearance="outline">
+                    <mat-label>CPF</mat-label>
+                    <input matInput [mask]="cpfMask" formControlName="cpf" required>
+                    <mat-error validation controlName="cpf"
+                        [msg]="{required: 'Campo CPF é obrigatório', mask: 'Campo incompleto'}">
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="column">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" required>
+                    <mat-error validation controlName="email"
+                        [msg]="{required: 'Campo Email é obrigatório', email: 'Campo incompleto'}">
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-around center">
+                <mat-form-field appearance="outline" fxFlex="40">
+                    <mat-label>Telefone</mat-label>
+                    <input matInput type="text"  [mask]="telMask" formControlName="telefone" required>
+                    <mat-error validation controlName="telefone"
+                        [msg]="{required: 'Campo Telefone é obrigatório', mask: 'Campo incompleto'}">
+                    </mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" fxFlex="40">
+                    <mat-label>Data de Nascimento</mat-label>
+                    <input matInput type="date" formControlName="dataNascimento" required>
+                    <mat-error validation controlName="dataNascimento"
+                        [msg]="{required: 'Campo Data de Nascimento é obrigatório'}">
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="column">
+                <app-input-file 
+                    label="Foto" 
+                    controlName="foto">
+
+                </app-input-file>
+            </div>
+            <br>
+            <div fxLayout="column">
+                <button mat-raised-button color="primary" [disabled]="pessoaForm.invalid" (click)="onSubmit()">
+                    Submit <mat-icon>done</mat-icon>
+                </button>
+            </div>
+        </form>
+    </mat-card>
+</div>

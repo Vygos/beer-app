@@ -1,0 +1,30 @@
+<div fxLayout="column"
+     fxLayoutAlign="space-around center"  
+     style="margin-top: 20px;">
+    <app-carrinho-item  class="carrinho" 
+        *ngFor="let item of items; index as i" 
+        [item]="item" 
+        [index]="i" >
+    </app-carrinho-item>
+    <span class="valor-total" *ngIf="items.length > 0; else nenhumProduto">
+        <b>Valor total: {{ getValorTotal() | currency: 'BRL' }}</b>
+    </span>
+    <ng-template #nenhumProduto>
+        <span class="valor-total">
+            <b>Você não possui produto adicionado ao seu carrinho.</b>
+        </span>
+    </ng-template>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+        <button  class="button" 
+            mat-raised-button 
+            color="primary" 
+            fxLayoutAlign="space-around center"
+            routerLink="/">
+            Continuar Comprando 
+            <mat-icon>shopping_cart</mat-icon>
+        </button>
+        <button class="button" mat-raised-button fxLayoutAlign="space-around center" *ngIf="items.length > 0">
+            Finalizar Compra
+        </button>
+    </div>
+</div>

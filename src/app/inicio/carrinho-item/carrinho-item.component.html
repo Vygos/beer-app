@@ -1,0 +1,14 @@
+<div class="carrinho-item-card">
+    <mat-card fxLayout="row" fxLayoutAlign="space-around center">
+        <span> {{ item.produto.nome}} </span>
+        <img [src]="item.produto.imagem" class="imagem"/>
+        <mat-form-field appearance="legacy" fxFlex="20" style="margin-top: 10px;">
+            <input matInput color="gray" type="number" min="1" value="{{item.quantidade}}" (click)="aumentarQuantidade($event)">
+            <mat-hint>Quantidade</mat-hint>
+        </mat-form-field>
+        <span>{{calcularItem(item) | currency: 'BRL'}}</span>
+        <button mat-icon-button matSuffix style="color: indigo;" (click)="excluirItem(index)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-card>
+</div>

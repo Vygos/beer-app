@@ -1,0 +1,21 @@
+<mat-card class="mat-card">
+    <div>
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <img [src]="produto.imagem" class="image"> 
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <p>{{produto.nome}}</p>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <p>{{produto.descricao}}</p>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <p class="valor">{{produto.valor | currency: 'BRL'}}</p>
+        </div>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <button mat-raised-button color="primary" (click)="comprar(produto.id)">
+            Comprar <mat-icon>shopping_cart</mat-icon>
+        </button>
+    </div>
+</mat-card>

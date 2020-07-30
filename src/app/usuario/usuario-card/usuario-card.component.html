@@ -1,0 +1,33 @@
+<mat-card >
+    <div fxLayout="column" fxLayoutAlign="space-around center">
+        <img src="data:image/jpeg;base64,{{usuario.foto}}" class="img">
+        <mat-form-field appearance="outline" >
+            <mat-label>Nome</mat-label>
+            <input matInput [(ngModel)]="usuario.nome" disabled>
+        </mat-form-field>
+    </div>  
+    <div fxLayout="column" fxLayoutAlign="space-around center">
+        <mat-form-field appearance="outline" >
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="usuario.email" disabled>
+        </mat-form-field>
+
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+        
+        <mat-form-field appearance="outline" fxFlex="30">
+            <mat-label>Telefone</mat-label >
+            <input matInput [mask]="telMask" [(ngModel)]="usuario.telefone" disabled>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="30">
+            <mat-label>CPF</mat-label>
+            <input matInput [mask]="cpfMask" [(ngModel)]="usuario.cpf" disabled>
+        </mat-form-field>   
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+        <mat-form-field appearance="outline" fxFlex="30">
+            <mat-label>Data de Nascimento</mat-label>
+            <input matInput ngModel="{{usuario.dataNascimento | date: 'dd/MM/yyyy'}}" disabled>
+        </mat-form-field>   
+    </div>
+</mat-card>
