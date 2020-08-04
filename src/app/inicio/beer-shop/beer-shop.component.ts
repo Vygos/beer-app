@@ -55,13 +55,7 @@ export class BeerShopComponent implements OnInit {
 
     this.store.dispatch(addProduto({item}));
 
-    if (this.userAuth.user) {
-      this.router.navigate(['/carrinho']);
-      this.snackBar.open("Item adicionado ao carrinho", "", {duration: 3000});
-      return;
-    }
-
-    this.router.navigate(['/login']);
+    this.router.navigate(['/carrinho'])
 
   }
 

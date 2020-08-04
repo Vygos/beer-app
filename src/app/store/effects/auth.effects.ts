@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core'
 import { User } from 'src/app/model/user.model'
 import { PessoaService } from 'src/app/services/pessoa.service'
 import { Router } from '@angular/router'
+import { Store } from '@ngrx/store'
+import { AppReducer } from '../reducers/app.reducer'
 
 
 @Injectable()
@@ -29,12 +31,14 @@ export class AuthEffects {
 
     navigateUser$ = createEffect(() => this.actions$.pipe(
         ofType(AuthAction.LOGIN_AUTH),
-        tap(() => this.router.navigate(['/']))
+        switchMap(() => this.store.select('redirectUrl')),
+        tap(({url}) => this.router.navigate([url]))
     ), {dispatch: false})
 
     constructor(
         private readonly actions$: Actions,
         private readonly pessoaService: PessoaService,
-        private readonly router: Router
+        private readonly router: Router,
+        private readonly store: Store<AppReducer>
     ) { }
 }

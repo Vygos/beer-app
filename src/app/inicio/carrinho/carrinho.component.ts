@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/model/item.model';
 import { Store, select } from '@ngrx/store';
 import { AppReducer } from 'src/app/store/reducers/app.reducer';
+import { User } from 'src/app/model/user.model';
+import { Router, RouterModule } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { redirectRoute } from 'src/app/store/actions/redirect.action';
 
 @Component({
   selector: 'app-carrinho',
@@ -14,12 +18,21 @@ export class CarrinhoComponent implements OnInit {
 
   valorTotal: number;
 
-  constructor(private readonly store: Store<AppReducer>) { }
+  userAuth: User;
+
+  constructor(
+    private readonly store: Store<AppReducer>,
+    private readonly router: Router,
+    ) { }
 
   ngOnInit(): void {
     this.store.pipe(select('carrinho'))
       .subscribe(carrinho => {
         this.items = carrinho.items;
+      })
+
+    this.store.pipe(select('userAuth')).subscribe(userAuth => {
+        this.userAuth = userAuth.user;
       })
   }
 
@@ -31,6 +44,16 @@ export class CarrinhoComponent implements OnInit {
       this.valorTotal = valorTotal;
     })
     return this.valorTotal;
+  }
+
+  finalizar() {
+    if (this.userAuth) {
+      this.router.navigate(['/finalizar-compra']);
+      return;
+    }
+
+    this.store.dispatch(redirectRoute({url: 'finalizar-compra'}))
+    this.router.navigate(['/login']);
   }
 
 }

@@ -23,7 +23,10 @@
             Continuar Comprando 
             <mat-icon>shopping_cart</mat-icon>
         </button>
-        <button class="button" mat-raised-button fxLayoutAlign="space-around center" *ngIf="items.length > 0">
+        <button class="button btn-finalizar-compra" 
+            mat-raised-button 
+            fxLayoutAlign="space-around center" (click)="finalizar()"
+            *ngIf="items.length > 0">
             Finalizar Compra
         </button>
     </div>

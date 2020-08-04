@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { CarrinhoItemComponent } from './carrinho-item/carrinho-item.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FinalizarCompraComponent } from './finalizar-compra/finalizar-compra.component';
 
 
 
@@ -24,7 +25,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   ],
   declarations: [
     InicioComponent, 
-    BeerComponent, BeerShopComponent, CarrinhoComponent, CarrinhoItemComponent
+    BeerComponent, BeerShopComponent, CarrinhoComponent, CarrinhoItemComponent, FinalizarCompraComponent
   ]
   ,
   imports: [
