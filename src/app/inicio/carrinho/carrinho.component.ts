@@ -18,7 +18,7 @@ export class CarrinhoComponent implements OnInit {
 
   valorTotal: number;
 
-  userAuth: User;
+  user: User;
 
   constructor(
     private readonly store: Store<AppReducer>,
@@ -31,9 +31,10 @@ export class CarrinhoComponent implements OnInit {
         this.items = carrinho.items;
       })
 
-    this.store.pipe(select('userAuth')).subscribe(userAuth => {
-        this.userAuth = userAuth.user;
-      })
+    this.store.pipe(select('userAuth'))
+      .subscribe(userAuth => {
+      this.user = userAuth.user;
+    })
   }
 
   getValorTotal() {
@@ -47,7 +48,7 @@ export class CarrinhoComponent implements OnInit {
   }
 
   finalizar() {
-    if (this.userAuth) {
+    if (this.user) {
       this.router.navigate(['/finalizar-compra']);
       return;
     }

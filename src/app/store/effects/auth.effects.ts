@@ -23,7 +23,7 @@ export class AuthEffects {
                         const [ user ] = usuario;
                         return AuthAction.authSuccesful(new User({nome: user.nome, email: user.email}))
                     }),
-                    catchError(() => of({type: AuthAction.LOGIN, payload: {}})),
+                    catchError(() => of(AuthAction.authError({error: 'Senha incorreta !'}))),
                     delay(2000)
                 )
         })

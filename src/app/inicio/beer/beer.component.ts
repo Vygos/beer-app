@@ -4,12 +4,21 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppReducer } from 'src/app/store/reducers/app.reducer';
 import * as CarrinhoAction from 'src/app/store/actions/carrinho.action';
+import { trigger, state, transition, style, animate } from '@angular/animations';
 
 
 @Component({
   selector: 'app-beer',
   templateUrl: './beer.component.html',
-  styleUrls: ['./beer.component.scss']
+  styleUrls: ['./beer.component.scss'],
+  animations: [
+    trigger('fade', [
+      transition('void => *', [
+        style({ transform: 'translateY(50px)'}),
+        animate(1000)
+      ])
+    ])
+  ]
 })
 export class BeerComponent implements OnInit {
 

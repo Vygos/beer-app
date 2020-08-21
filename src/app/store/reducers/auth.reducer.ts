@@ -23,14 +23,19 @@ export function authReducer(state, action) {
 const _authReducer = createReducer(initialState, 
     on(AuthActions.authUser, () => ({
         ...state,
-        isLoading: true
+        isLoading: true,
     })),
     on(AuthActions.authSuccesful, (state, {email, nome}) => ({
         ...state,
         isLoading: false,
+        error: null,
         user: {
             nome,
             email
-        }
+        },
+    })),
+    on(AuthActions.authError, (state, {error}) => ({
+        isLoading: false,
+        error: error
     }))
 )
