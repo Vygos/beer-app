@@ -2,16 +2,24 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'spinner-loading',
-  template: '<mat-spinner [diameter]="diameter" ></mat-spinner>',
+  template: `
+    <div class="spinner-outside">
+      <div class="spinner">
+        <mat-spinner [diameter]="diameter" ></mat-spinner>,
+      </div>
+    </div>
+  `,
   styleUrls: ['./spinner-loading.component.scss']
 })
 export class SpinnerLoadingComponent implements OnInit {
 
-  @Input() diameter: number;
+  @Input() diameter: number = 50;
 
   @Input() indeterminate;
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }

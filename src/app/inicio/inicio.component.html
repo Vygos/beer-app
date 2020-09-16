@@ -1,11 +1,11 @@
-<div xLayout="row" 
+<!-- <div xLayout="row" 
     fxLayoutAlign="space-around center" 
     *ngIf="isLoading; else notLoading"
     style="margin-top: 50px">
-    <spinner-loading diameter="50"></spinner-loading>
+    <mat-spinner diameter="50"></mat-spinner>
+</div> -->
+<div fxLayout="row" fxLayoutAlign="space-around center" style="margin-top: 20px;">
+    <app-beer *ngFor="let produto of produtos" [produto]="produto"></app-beer>
 </div>
 <ng-template #notLoading>
-    <div fxLayout="row" fxLayoutAlign="space-around center" style="margin-top: 20px;">
-        <app-beer *ngFor="let produto of produtos" [produto]="produto"></app-beer>
-    </div>
 </ng-template>

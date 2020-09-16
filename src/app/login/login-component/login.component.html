@@ -15,7 +15,7 @@
                 <div fxLayout="column">
                     <mat-form-field appearance="outline">
                         <mat-label>Email</mat-label>
-                        <input matInput placeholder="ex: maria@gmail.com" formControlName="email" (keyup)="pesquisar()" required>
+                        <input matInput placeholder="ex: maria@gmail.com" formControlName="email" (change)="pesquisar()" required>
                         <mat-error 
                             validation 
                             controlName="email" 

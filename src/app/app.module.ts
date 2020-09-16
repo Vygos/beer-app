@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InicioModule } from './inicio/inicio.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,6 +20,7 @@ import { SpinnerLoadingComponent } from './shared/others/spinner-loading/spinner
 import { appReducer } from './store/reducers/app.reducer';
 import { ProdutoEffects } from './store/effects/produto.effects';
 import { MatBadgeModule } from '@angular/material/badge'
+import { RouteInterceptor } from './route.interceptor';
 
 
 @NgModule({
@@ -42,7 +43,9 @@ import { MatBadgeModule } from '@angular/material/badge'
     EffectsModule.forRoot([AuthEffects, ProdutoEffects]),
     StoreDevtoolsModule.instrument({})
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: RouteInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

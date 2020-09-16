@@ -11,12 +11,16 @@ import { BeerShopComponent } from './beer-shop/beer-shop.component';
 import { InicioRoutingModule } from './inicio-routing.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { CarrinhoItemComponent } from './carrinho-item/carrinho-item.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FinalizarCompraComponent } from './finalizar-compra/finalizar-compra.component';
-
+import {MatStepperModule} from '@angular/material/stepper';
+import { EnderecoComponent } from './finalizar-compra/endereco/endereco.component';
+import { ValidationModule } from '../shared/validation/validation.module';
+import {PortalModule} from '@angular/cdk/portal'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 
 @NgModule({
@@ -25,12 +29,13 @@ import { FinalizarCompraComponent } from './finalizar-compra/finalizar-compra.co
   ],
   declarations: [
     InicioComponent, 
-    BeerComponent, BeerShopComponent, CarrinhoComponent, CarrinhoItemComponent, FinalizarCompraComponent
+    BeerComponent, BeerShopComponent, CarrinhoComponent, CarrinhoItemComponent, FinalizarCompraComponent, EnderecoComponent
   ]
   ,
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     MatCardModule,
     MatIconModule,
@@ -39,7 +44,11 @@ import { FinalizarCompraComponent } from './finalizar-compra/finalizar-compra.co
     InicioRoutingModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatStepperModule,
+    ValidationModule,
+    PortalModule,
+    MatProgressSpinnerModule
   ]
 })
 export class InicioModule { }

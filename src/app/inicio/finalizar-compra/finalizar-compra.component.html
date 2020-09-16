@@ -1,1 +1,9 @@
-<p>finalizar-compra works!</p>
+<mat-card>
+    <mat-horizontal-stepper liner="true">
+        <mat-step [stepControl]="enderecoForm">
+            <ng-template matStepLabel>Prencha o endereço</ng-template>
+            <app-endereco [enderecoForm]="enderecoForm.form"></app-endereco>
+            <button mat-button matStepperNext>Próximo</button>
+        </mat-step>
+    </mat-horizontal-stepper>
+</mat-card>

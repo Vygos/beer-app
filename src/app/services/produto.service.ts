@@ -8,14 +8,13 @@ import { publishReplay, refCount, shareReplay } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProdutoService {
-  private endpoint = 'http://localhost:3000'
   constructor(private readonly http: HttpClient) { }
 
   buscar(): Observable<Produto[]> {
-    return this.http.get<Produto[]>(`${this.endpoint}/produtos`);
+    return this.http.get<Produto[]>(`/produtos`);
   }
 
   buscarPorId(id: number) {
-    return this.http.get<Produto>(`${this.endpoint}/produtos/${id}`)
+    return this.http.get<Produto>(`/produtos/${id}`)
   }
 }

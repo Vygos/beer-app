@@ -1,0 +1,14 @@
+<div>
+    <h3 fxLayout="row" fxLayoutAlign="start">Preencha o endereço para entrega</h3>
+    <form [formGroup]="enderecoForm">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <mat-form-field appearance="outline">
+                <mat-label>CEP</mat-label>
+                <input matInput formControlName="cep" required>
+                <mat-error validation controlName="cep"
+                    [msg]="{required: 'Campo Cep é obrigatório'}">
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</div>

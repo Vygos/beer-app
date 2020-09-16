@@ -15,7 +15,7 @@ export class AuthEffects {
 
     
     authUser$ = createEffect(() => this.actions$.pipe(
-        ofType(AuthAction.LOGIN),
+        ofType(AuthAction.authUser),
         switchMap((auth: {user: string, password: string}) => {
             return this.pessoaService.pesquisar(auth.user)
                 .pipe(
@@ -24,7 +24,7 @@ export class AuthEffects {
                         return AuthAction.authSuccesful(new User({nome: user.nome, email: user.email}))
                     }),
                     catchError(() => of(AuthAction.authError({error: 'Senha incorreta !'}))),
-                    delay(2000)
+                    // delay(2000)
                 )
         })
     ))

@@ -29,7 +29,7 @@ export class PessoaService {
 
   pesquisar(email: string) : Observable<any[]> {
     const params = new HttpParams().append("email", email);
-    return this.http.get<User[]>(`${this.config.endpoint}/users`, { params });
+    return this.http.get<User[]>(`/users`, { params });
   }
 
   salvarFoto(foto, id) {
