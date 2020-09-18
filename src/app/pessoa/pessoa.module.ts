@@ -20,7 +20,7 @@ const options: () => Partial<IConfig> = () => {
   return {
 
   };
-};;
+};
 
 @NgModule({
   declarations: [PessoaCadastroComponent],

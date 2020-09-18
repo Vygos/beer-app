@@ -21,7 +21,13 @@ import { EnderecoComponent } from './finalizar-compra/endereco/endereco.componen
 import { ValidationModule } from '../shared/validation/validation.module';
 import {PortalModule} from '@angular/cdk/portal'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 
+const options: () => Partial<IConfig> = () => {
+  return {
+
+  };
+};
 
 @NgModule({
   exports: [
@@ -48,7 +54,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
     MatStepperModule,
     ValidationModule,
     PortalModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgxMaskModule.forRoot(options)
   ]
 })
 export class InicioModule { }

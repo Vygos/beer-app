@@ -1,9 +1,13 @@
-<mat-card>
+<mat-card style="margin-top: 10px;">
     <mat-horizontal-stepper liner="true">
         <mat-step [stepControl]="enderecoForm">
             <ng-template matStepLabel>Prencha o endereço</ng-template>
             <app-endereco [enderecoForm]="enderecoForm.form"></app-endereco>
-            <button mat-button matStepperNext>Próximo</button>
+            <button mat-button matStepperNext [disabled]="enderecoForm.form.invalid">Próximo</button>
+        </mat-step>
+        <mat-step [stepControl]="enderecoForm">
+            <ng-template matStepLabel>Selecione o Método de pagamento</ng-template>
+            
         </mat-step>
     </mat-horizontal-stepper>
 </mat-card>
