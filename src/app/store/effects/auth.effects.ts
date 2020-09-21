@@ -30,7 +30,7 @@ export class AuthEffects {
     ))
 
     navigateUser$ = createEffect(() => this.actions$.pipe(
-        ofType(AuthAction.LOGIN_AUTH),
+        ofType(AuthAction.authSuccesful),
         switchMap(() => this.store.select('redirectUrl')),
         tap(({url}) => this.router.navigate([url]))
     ), {dispatch: false})

@@ -1,10 +1,10 @@
 <div>
     <h3 fxLayout="row" fxLayoutAlign="start">Preencha o endereço para entrega</h3>
-    <form [formGroup]="enderecoForm">
+    <form [formGroup]="enderecoForm.form">
         <div fxLayout="row" dir="ltr" fxLayoutGap="40px">
             <mat-form-field appearance="legacy">
                 <mat-label>CEP</mat-label>
-                <input matInput formControlName="cep" required [mask]="cepMask">
+                <input matInput formControlName="cep" required [mask]="cepMask" (blur)="consultarCep()">
                 <mat-error validation controlName="cep"
                     [msg]="{required: 'Campo cep é obrigatório'}">
                 </mat-error>
@@ -20,7 +20,7 @@
         <div fxLayout="row" dir="ltr" fxLayoutGap="20px">
             <mat-form-field appearance="legacy" fxFlex="20">
                 <mat-label>Bairro</mat-label>
-                <input matInput formControlName="bairro" required >
+                <input matInput formControlName="bairro" required>
                 <mat-error validation controlName="bairro"
                     [msg]="{required: 'Campo bairro é obrigatório'}">
                 </mat-error>
@@ -34,7 +34,7 @@
             </mat-form-field>
             <mat-form-field appearance="legacy" fxFlex="10">
                 <mat-label>UF</mat-label>
-                <input matInput formControlName="uf" required>
+                <input matInput formControlName="uf" required> 
                 <mat-error validation controlName="uf"
                     [msg]="{required: 'Campo uf é obrigatório'}">
                 </mat-error>
