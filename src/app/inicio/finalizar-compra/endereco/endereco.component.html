@@ -6,7 +6,7 @@
                 <mat-label>CEP</mat-label>
                 <input matInput formControlName="cep" required [mask]="cepMask" (blur)="consultarCep()">
                 <mat-error validation controlName="cep"
-                    [msg]="{required: 'Campo cep é obrigatório'}">
+                    [msg]="{required: 'Campo cep é obrigatório', mask: 'CEP inválido'}">
                 </mat-error>
             </mat-form-field>
             <mat-form-field appearance="legacy">

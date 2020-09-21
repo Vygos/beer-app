@@ -7,11 +7,11 @@ export class EnderecoForm {
 
     constructor(private fb: FormBuilder) {
         this.form = this.fb.group({
-            cep: new FormControl(null, [Validators.required]),
-            logradouro: new FormControl({value: null, disable: true}, Validators.required),
-            bairro: new FormControl({value: null, disable: true}, Validators.required),
-            localidade: new FormControl({value: null, disable: true}, Validators.required),
-            uf: new FormControl({value: null, disable: true}, Validators.required)
+            cep: new FormControl(null, [Validators.required, Validators.minLength(7)]),
+            logradouro: new FormControl({value: null, disabled: true}, [Validators.required]),
+            bairro: new FormControl({value: null, disabled: true}, [Validators.required]),
+            localidade: new FormControl({value: null, disabled: true}, [Validators.required]),
+            uf: new FormControl({value: null, disabled: true}, [Validators.required])
         })
     }
 
